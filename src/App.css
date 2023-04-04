@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+/* Color Scheme */
+
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #333;
+    --background-color: #f2f2f2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Typography */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--secondary-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+    font-size: 18px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ol {
+    font-size: 18px;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* Layout and Spacing */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid var(--secondary-color);
+}
+
+
+/* Accessibility */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+}
+
+a:hover,
+a:focus {
+    outline: none;
+    border-bottom-color: transparent;
+    background-color: var(--primary-color);
+    color: white;
 }

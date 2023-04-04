@@ -6,7 +6,7 @@ function Canvas() {
   useEffect(() => {
     const fetchCanvasArt = async () => {
       const response = await fetch(
-        "https://storage.googleapis.com/website-assets-alecsharpie/artfx-canvas-art.js"
+        "https://storage.googleapis.com/website-assets-alecsharpie/artfx/canvas-art.js"
       );
       const code = await response.text();
 
