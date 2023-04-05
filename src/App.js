@@ -11,8 +11,10 @@ function App() {
 
   return (
     <div className="container">
-      <img src="../public/logo_128.png" alt="Logo" />
-      <h1>WikiQuote to Canvas</h1>
+      <div className="logo-and-title">
+        <img src="logo_64.png" alt="Logo" />
+        <h1>WikiQuote to Canvas</h1>
+      </div>
       <h3>
         Everyone gets to make at least one silly little GPT website, right?
       </h3>
@@ -31,12 +33,10 @@ function App() {
         <li>Voilà</li>
       </ol>
       <h3>Can I see the code?</h3>
-      <p>
-        Yes,
-        <a href="https://github.com/alecsharpie/artfx">
-          github.com/alecsharpie/artfx
-        </a>
-      </p>
+      <p>Yes,</p>
+      <a href="https://github.com/alecsharpie/artfx">
+        github.com/alecsharpie/artfx
+      </a>
     </div>
   );
 }
