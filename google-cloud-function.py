@@ -3,10 +3,11 @@ import functions_framework
 import openai
 from google.cloud import storage
 import wikiquote
+import json
 
 import os
-# import pytz
-# import datetime
+import pytz
+import datetime
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 bucket_name = "website-assets-alecsharpie"
@@ -321,29 +322,42 @@ def generate_code(inspo):
     return generated_code
 
 
-# date = datetime.datetime.now(pytz.timezone('US/Pacific')).strftime("%Y/%m/%d")
-
-
 @functions_framework.http
 def upload_generation(request):
 
     # returns a tuple of (quote, author)
-    inspiration = wikiquote.quote_of_the_day()
+    quote, author = wikiquote.quote_of_the_day()
 
     # Generate the code
-    code = generate_code(inspiration[0])
+    code = generate_code(quote)
+
+    date = datetime.datetime.now(
+        pytz.timezone('Australia/Melbourne')).strftime("%Y-%m-%d")
+
+    art_data = {"code": code, "quote": quote + " - " + author, "date": date}
 
     # Store the code and quote in a Cloud Storage bucket
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
 
-    code_filename = "artfx/canvas-art.js"
-    blob = bucket.blob(code_filename)
-    blob.upload_from_string(code)
+    db_filename = "artfx/DB.json"
 
-    quote_filename = "artfx/quote.txt"
-    blob = bucket.blob(quote_filename)
-    blob.upload_from_string(inspiration[0] + " - " + inspiration[1])
+    # Read in current JSON file
+    blob = bucket.get_blob(db_filename)
+    downloaded_file = blob.download_as_text(encoding="utf-8")
+    json_data = json.loads(downloaded_file)
+
+    if len(json_data) <= 3:
+        json_data.append(art_data)
+    else:
+        json_data.pop(0)
+        json_data.append(art_data)
+
+    # upload updated JSON file
+    json_string = json.dumps(json_data)
+    print(json_string)
+    blob = bucket.blob(db_filename)
+    blob.upload_from_string(json_string)
 
     # Return a success message
     return "Code stored successfully."
