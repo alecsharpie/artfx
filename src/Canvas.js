@@ -1,26 +1,60 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import "./Canvas.css";
 
 function Canvas() {
-  const canvasRef = useRef(null);
+  const canvasRefs = useRef([]);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCanvasArt = async () => {
       const response = await fetch(
-        "https://storage.googleapis.com/website-assets-alecsharpie/artfx/canvas-art.js"
+        "https://storage.googleapis.com/website-assets-alecsharpie/artfx/DB.json"
       );
-      const code = await response.text();
+      const data = await response.json();
 
-      // const canvas = canvasRef.current;
-      // const ctx = canvas.getContext("2d");
+      canvasRefs.current = data.map(() => ({
+        ref: React.createRef(),
+        width: 500,
+        height: 500,
+      }));
 
-      // eslint-disable-next-line no-eval
-      eval(code);
+      setData(data);
+      setIsLoading(false);
+
+      console.log(data)
     };
 
     fetchCanvasArt();
   }, []);
 
-  return <canvas ref={canvasRef} width={500} height={500} />;
+  useEffect(() => {
+    canvasRefs.current.forEach(({ ref }, index) => {
+      const canvas = ref.current;
+
+      if (canvas) {
+        // Draw on the canvas here
+        eval(data[index].code);
+        console.log(`Canvas ${index} is ready`);
+      }
+    });
+  }, [canvasRefs.current]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="canvas-grid">
+      {canvasRefs.current.map(({ ref }, index) => (
+        <div key={index} className="canvas-wrapper">
+          <canvas ref={ref} width={500} height={500} />
+          <div className="quote">{data[index].quote}</div>
+          <div className="date">{data[index].date}</div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Canvas;
