@@ -9,6 +9,8 @@ import os
 import pytz
 import datetime
 
+# schedule cloud function: https://cloud.google.com/community/tutorials/using-scheduler-invoke-private-functions-oidc
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 bucket_name = "website-assets-alecsharpie"
 
@@ -346,11 +348,15 @@ def upload_generation(request):
     downloaded_file = blob.download_as_text(encoding="utf-8")
     json_data = json.loads(downloaded_file)
 
-    if len(json_data) <= 3:
-        json_data.append(art_data)
+    limit = None
+    if limit:
+        if len(json_data) <= limit:
+            json_data.insert(0, art_data)
+        else:
+            json_data.pop(-1)
+            json_data.append(0, art_data)
     else:
-        json_data.pop(0)
-        json_data.append(art_data)
+        json_data.insert(0, art_data)
 
     # upload updated JSON file
     json_string = json.dumps(json_data)
