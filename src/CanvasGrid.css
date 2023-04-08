@@ -1,12 +1,13 @@
 .canvas-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .canvas-wrapper {
     padding: 20px;
+    margin: 10px;
     width: 500px;
     border: 2px solid var(--secondary-color);
     display: flex;
@@ -15,12 +16,12 @@
     align-items: center;
 }
 
-canvas {
-    margin-top: 10px;
+.single-canvas {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
     border: 2px solid var(--secondary-color);
+    margin: 2px;
 }
 
 .quote {
@@ -33,4 +34,28 @@ canvas {
     font-size: 16px;
     color: var(--primary-color);
     margin-top: 5px;
+}
+
+.refresh-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.refresh-button:hover {
+    background-color: #8f1d50;
+}
+
+.refresh-button:active {
+    background-color: #6b163c;
+}
+
+.refresh-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--secondary-color);
 }

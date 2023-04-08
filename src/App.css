@@ -27,15 +27,6 @@ h1 {
     margin-right: 20px;
 }
 
-
-/* h1 {
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--secondary-color);
-  margin: 0;
-  white-space: pre-line;
-} */
-
 h3 {
     font-size: 24px;
     font-weight: bold;
@@ -61,6 +52,13 @@ a {
     color: var(--primary-color);
     text-decoration: none;
     border-bottom: 2px solid var(--primary-color);
+}
+
+.instructions {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 
