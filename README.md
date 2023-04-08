@@ -1,5 +1,12 @@
 # Daily Artwork by GPT based on WIkiQuote of the day.
 
+#### Backend
+A google cloud function reaches out to openai and generates code output, saving it in a google cloud bucket.
+This happens at 12pm daily, scheduled by google cloud scheduler.
+
+#### Frontend
+A react app that fetches the generated code from the google cloud bucket and renders it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -31,5 +38,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ## Credits
-
-Example borrowed from [here](https://codepen.io/balazs_sziklai/pen/vYZBWR)
+One of the examples in the prompt is based on [this codepen example](https://codepen.io/balazs_sziklai/pen/vYZBWR)
