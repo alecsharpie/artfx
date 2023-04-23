@@ -39,7 +39,8 @@ function CanvasGrid() {
           eval(data[index].code);
           console.log(`Canvas ${index} is ready`);
         } catch (error) {
-          console.error(error);
+          console.log('Error');
+          // console.error(error);
         }
       }
     });
