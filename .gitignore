@@ -3,6 +3,9 @@
 #secrets
 */set_envs.sh
 
+#data
+backend/DB.json
+
 # dependencies
 /node_modules
 /.pnp
