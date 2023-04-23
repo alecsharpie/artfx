@@ -1,6 +1,0 @@
-[{
-    "origin": ["https://alecsharpie.github.io/artfx", "https://www.alecsharpie.me"],
-    "method": ["GET"],
-    "responseHeader": ["*"],
-    "maxAgeSeconds": 3600
-}]
