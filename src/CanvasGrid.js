@@ -81,6 +81,9 @@ function CanvasGrid() {
             {" "}
             Regenerate{" "}
           </button>{" "}
+          <summary>
+            <div className="summary">{data[index].code}</div>
+          </summary>
         </div>
       ))}{" "}
     </div>
