@@ -12,10 +12,10 @@ const CodeBlock = ({ code }) => {
 
   return (
     <div>
-      <button onClick={toggleVisibility}> Show code </button>{" "}
+      <button className="code-button" onClick={toggleVisibility}> Show code 👇</button>{" "}
       {isVisible && (
         <pre>
-          <code dangerouslySetInnerHTML={{ __html: highlightedCode }}> </code>{" "}
+          <code dangerouslySetInnerHTML={{ __html: highlightedCode }}></code>{" "}
         </pre>
       )}{" "}
     </div>
