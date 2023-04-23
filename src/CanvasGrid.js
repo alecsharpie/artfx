@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CanvasGrid.css";
+import CodeBlock from "./CodeBlock.js";
 
 function CanvasGrid() {
   const canvasRefs = useRef([]);
@@ -81,9 +82,7 @@ function CanvasGrid() {
             {" "}
             Regenerate{" "}
           </button>{" "}
-          <summary>
-            <div className="summary">{data[index].code}</div>
-          </summary>
+          <CodeBlock code={data[index].code} />{" "}
         </div>
       ))}{" "}
     </div>
