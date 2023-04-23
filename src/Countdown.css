@@ -1,0 +1,44 @@
+/* Countdown Component */
+
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.countdown-title {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-timer-item {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.countdown-timer-info {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 10px;
+    margin-top: 20px
+}
+
+.countdown-timer-separator {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
