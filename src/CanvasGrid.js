@@ -33,9 +33,14 @@ function CanvasGrid() {
       const canvas = ref.current;
 
       if (canvas) {
-        // raw on the canvas here
-        eval(data[index].code);
-        console.log(`Canvas ${index} is ready`);
+        // draw on the canvas here
+
+        try {
+          eval(data[index].code);
+          console.log(`Canvas ${index} is ready`);
+        } catch (error) {
+          console.error(error);
+        }
       }
     });
   }, [data]);
@@ -60,7 +65,12 @@ function CanvasGrid() {
       {" "}
       {canvasRefs.current.map(({ ref }, index) => (
         <div key={index} className="canvas-wrapper">
-          <canvas className="single-canvas" ref={ref} width={500} height={500} />{" "}
+          <canvas
+            className="single-canvas"
+            ref={ref}
+            width={500}
+            height={500}
+          />{" "}
           <div className="quote"> {data[index].quote} </div>{" "}
           <div className="date"> {data[index].date} </div>{" "}
           <button
