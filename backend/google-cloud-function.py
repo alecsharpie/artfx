@@ -129,6 +129,14 @@ def upload_generation(request):
 
 if __name__ == "__main__":
 
-    quote = "We are all part of some cosmic pattern, and this pattern works toward good and not evil."
+    quote = "We still have wars and we still have poverty — as long as these things exist, there's always going to be something to do. But that cannot distract from the fact that we're on the way."
     # Generate the code
-    print(generate_code(quote))
+
+    data = {
+        "code": generate_code(quote),
+        "quote": quote + " - Harry Belafonte",
+        "date": "2023-04-26"
+    }
+
+    with open('backend/single_result.json', 'w') as fp:
+        json.dump(data, fp)
