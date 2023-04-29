@@ -129,13 +129,13 @@ def upload_generation(request):
 
 if __name__ == "__main__":
 
-    quote = "We still have wars and we still have poverty — as long as these things exist, there's always going to be something to do. But that cannot distract from the fact that we're on the way."
+    quote = "Historical sense and poetic sense should not, in the end, be contradictory, for if poetry is the little myth we make, history is the big myth we live, and in our living, constantly remake."
     # Generate the code
 
     data = {
         "code": generate_code(quote),
-        "quote": quote + " - Harry Belafonte",
-        "date": "2023-04-26"
+        "quote": quote + " - Robert Penn Warren",
+        "date": "2023-04-24"
     }
 
     with open('backend/single_result.json', 'w') as fp:

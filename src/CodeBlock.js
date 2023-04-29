@@ -15,7 +15,7 @@ const CodeBlock = ({ code }) => {
       <button className="code-button" onClick={toggleVisibility}> Show code 👇</button>{" "}
       {isVisible && (
         <pre>
-          <code dangerouslySetInnerHTML={{ __html: highlightedCode }}></code>{" "}
+          <code style={{ display: "block", margin: "20px auto", border: "2px solid var(--secondary-color)" }} dangerouslySetInnerHTML={{ __html: highlightedCode }}></code>{" "}
         </pre>
       )}{" "}
     </div>
